@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using DellChallenge.D1.Api.Dal;
-using DellChallenge.D1.Api.Dto;
+using DellChallenge.D1.Contracts;
 
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;

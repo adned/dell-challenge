@@ -18,4 +18,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DellChallenge.D1.Contracts\DellChallenge.D1.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

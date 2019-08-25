@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using DellChallenge.D1.Api.Dto;
+using DellChallenge.D1.Contracts;
 
 namespace DellChallenge.D1.Api.Dal
 {

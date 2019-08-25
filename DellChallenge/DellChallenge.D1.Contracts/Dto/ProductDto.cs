@@ -1,4 +1,4 @@
-﻿namespace DellChallenge.D1.Api.Dto
+﻿namespace DellChallenge.D1.Contracts
 {
     /// <summary>
     /// The product DTO.
