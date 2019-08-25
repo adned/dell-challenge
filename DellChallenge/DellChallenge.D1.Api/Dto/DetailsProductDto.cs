@@ -1,20 +1,11 @@
-﻿namespace DellChallenge.D1.Api.Dal
+﻿namespace DellChallenge.D1.Api.Dto
 {
     /// <summary>
-    /// The product entity at data level.
+    /// The details for a product DTO.
     /// </summary>
-    public class Product
+    public class DetailsProductDto
     {
         #region Properties
-        /// <summary>
-        /// Gets or sets the ID of the product (GUID).
-        /// </summary>
-        public string Id
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// Gets or sets the name of the product.
         /// </summary>

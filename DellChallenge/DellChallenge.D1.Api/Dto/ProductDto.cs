@@ -1,7 +1,19 @@
 ﻿namespace DellChallenge.D1.Api.Dto
 {
-    public class ProductDto : NewProductDto
+    /// <summary>
+    /// The product DTO.
+    /// </summary>
+    public class ProductDto : DetailsProductDto
     {
-        public string Id { get; set; }
+        #region Properties
+        /// <summary>
+        /// Gets or sets the ID for the product.
+        /// </summary>
+        public string Id
+        {
+            get;
+            set;
+        }
+        #endregion
     }
 }
