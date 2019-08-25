@@ -1,22 +1,24 @@
 ﻿using DellChallenge.D2.Web.Models;
 using DellChallenge.D2.Web.Services;
+
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace DellChallenge.D2.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly IProductService _productService;
+        private readonly IProductsService _productsService;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductsService productsService)
         {
-            _productService = productService;
+            _productsService = productsService;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _productService.GetAll();
+            var model = _productsService.GetAll();
             return View(model);
         }
 
@@ -27,10 +29,53 @@ namespace DellChallenge.D2.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(NewProductModel newProduct)
+        public IActionResult Add(DetailsProductModel newProduct)
         {
-            _productService.Add(newProduct);
+            if (ModelState.IsValid)
+            {
+                _productsService.Add(newProduct);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(newProduct);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Update(string id)
+        {
+            var product = _productsService.Get(id);
+            return View(product);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(string id)
+        {
+            var product = _productsService.Delete(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Update(ProductModel product)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _productsService.Update(product.Id, (DetailsProductModel)product);
+                    return RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("Update", e.Message);
+                    return View(product);
+                }
+            }
+            else
+            {
+                return View(product);
+            }
         }
     }
 }

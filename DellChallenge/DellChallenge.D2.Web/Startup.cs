@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DellChallenge.D2.Web.Helpers;
 using DellChallenge.D2.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,7 +25,7 @@ namespace DellChallenge.D2.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductsService, ProductsService>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -35,6 +36,8 @@ namespace DellChallenge.D2.Web
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.Configure<ExternalServiceConfig>(Configuration.GetSection("ExternalService"));
+            services.AddTransient<HttpWrapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,7 +1,19 @@
 ﻿namespace DellChallenge.D2.Web.Models
 {
-    public class ProductModel : NewProductModel
+    /// <summary>
+    /// The product model.
+    /// </summary>
+    public class ProductModel : DetailsProductModel
     {
-        public string Id { get; set; }
+        #region Properties
+        /// <summary>
+        /// Gets or sets the ID for the product.
+        /// </summary>
+        public string Id
+        {
+            get;
+            set;
+        }
+        #endregion
     }
 }

@@ -23,12 +23,18 @@
         * Implement Get(id) method;
         * Implement Delete method;
         * Implement Put method;
+
+   Note: Extracted DTO to Contracts separated project for reusability;
+
+
     
 5. Project: __DellChallenge.D2.Web__
     * Change `ProductController`:
         * Implement `Delete` method;
         * Implement `Update` method and create necessay view with logic;
         * Implement validation for mandatory field `Name` on `Product` in `Add` and `Update` methods;
+
+   Note: Replaced RestSharp with built-in HttpClient that is faster;
 
 6. Project: __DellChallenge.D3.React__
     * Change `Products` component:
